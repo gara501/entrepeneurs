@@ -1,0 +1,178 @@
+[
+  {
+    "username": "_Yanguito",
+    "city": "Medellín",
+    "citycode": 1,
+    "twitter": "@_Yanguito",
+    "type": "Producto",
+    "classification": "Accesorios",
+    "business": {
+      "name": "Bicilab",
+      "description": "Accesorios en madera, gorras, camisetas ",
+      "address": "-",
+      "twitter": "@_Yanguito",
+      "facebook": "fanpageUrl",
+      "web": "pageUrl"
+    }
+  },
+  {
+    "username": "Paula Cañas",
+    "city": "Medellín",
+    "citycode": 1,
+    "twitter": "@paula",
+    "type": "Servicio",
+    "classification": "Turismo",
+    "business": {
+      "name": "Visas mundo",
+      "description": "Asesoria en viajes, visados de turismo",
+      "address": "bla bla bla",
+      "twitter": "@paula",
+      "facebook": "fanpageUrl",
+      "web": "pageUrl"
+    }
+  },
+  {
+    "username": "Pedro",
+    "city": "Bogotá",
+    "citycode": 2,
+    "twitter": "@logox_e",
+    "type": "Servicio",
+    "classification": "Consultoría",
+    "business": {
+      "name": "Logox",
+      "description": "Consultoria en normas de calidad, Planes estratégicos de seguridad vial y eficiencia energética",
+      "address": "bla bla bla",
+      "twitter": "@logox_e",
+      "facebook": "fanpageUrl",
+      "web": "pageUrl"
+    }
+  },
+  {
+    "username": "Pedro",
+    "city": "Bogotá",
+    "citycode": 2,
+    "twitter": "@logox_e",
+    "type": "Servicio",
+    "classification": "Consultoría",
+    "business": {
+      "name": "Logox",
+      "description": "Consultoria en normas de calidad, Planes estratégicos de seguridad vial y eficiencia energética",
+      "address": "bla bla bla",
+      "twitter": "@logox_e",
+      "facebook": "fanpageUrl",
+      "web": "pageUrl"
+    }
+  },
+  {
+    "username": "Ana María",
+    "city": "Bogotá",
+    "citycode": 2,
+    "twitter": "@Anamia23",
+    "type": "Producto",
+    "classification": "Alimentos",
+    "business": {
+      "name": "El artesano Taller de delicias",
+      "description": "Tortas, reposteria",
+      "address": "bla bla bla",
+      "twitter": "@Anamia23",
+      "facebook": "fanpageUrl",
+      "web": "pageUrl"
+    }
+  },
+  {
+    "username": "Cualquier Val",
+    "city": "Medellín",
+    "citycode": 1,
+    "twitter": "@Cualquierval",
+    "type": "Producto",
+    "classification": "Alimentos",
+    "business": {
+      "name": "Le carné gourmet",
+      "description": "Productos carnicos ",
+      "address": "bla bla bla",
+      "twitter": "@Cualquierval",
+      "facebook": "fanpageUrl",
+      "web": "pageUrl"
+    }
+  },
+  {
+    "username": "Cherrybomb reposteria",
+    "city": "Medellín",
+    "citycode": 1,
+    "twitter": "@Visbalu",
+    "type": "Producto",
+    "classification": "Alimentos",
+    "business": {
+      "name": "Cherrybomb reposteria",
+      "description": "Tortas, reposteria",
+      "address": "bla bla bla",
+      "twitter": "@Visbalu",
+      "facebook": "fanpageUrl",
+      "web": "pageUrl"
+    }
+  },
+  {
+    "username": "Catalina Serna",
+    "city": "Medellín",
+    "citycode": 1,
+    "twitter": "@cataserna",
+    "type": "Producto",
+    "classification": "Decoración",
+    "business": {
+      "name": "Fabrica de mandalas",
+      "description": "Mandalas tejidas",
+      "address": "bla bla bla",
+      "twitter": "@cataserna",
+      "facebook": "fanpageUrl",
+      "web": "pageUrl"
+    }
+  },
+  {
+    "username": "Marcela Cancino",
+    "city": "Cali",
+    "citycode": 3,
+    "twitter": "@MarcelaCancino_",
+    "type": "Producto",
+    "classification": "Decoración",
+    "business": {
+      "name": "Maredeco",
+      "description": "Decoración de interiores",
+      "address": "bla bla bla",
+      "twitter": "@MarcelaCancino_",
+      "facebook": "fanpageUrl",
+      "web": "pageUrl"
+    }
+  },
+  {
+    "username": "metro y medio",
+    "city": "Medellín",
+    "citycode": 1,
+    "twitter": "@MetroyMedio2",
+    "type": "Servicio",
+    "classification": "Consultoría",
+    "business": {
+      "name": "AsesoraCultural",
+      "description": "Comunicación y gestión cultural",
+      "address": "bla bla bla",
+      "twitter": "@MetroyMedio2",
+      "facebook": "fanpageUrl",
+      "web": "pageUrl"
+    }
+  },
+  {
+    "username": "Maria Lulito",
+    "city": "Bogotá",
+    "citycode": 2,
+    "twitter": "@MariaLulitoo",
+    "type": "Producto",
+    "classification": "Decoración",
+    "business": {
+      "name": "Rosario Design",
+      "description": "Accesorios personalizados",
+      "address": "bla bla bla",
+      "twitter": "@MariaLulitoo",
+      "facebook": "fanpageUrl",
+      "web": "pageUrl"
+    }
+  }
+]

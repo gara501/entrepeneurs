@@ -1,0 +1,163 @@
+.App {
+  height: 100vh;
+}
+
+.container {
+  background: #eff1f4;
+  display: flex;
+  height: 100vh;
+  flex-flow: row;
+  position: relative;
+}
+
+.left-side,
+.right-side {
+  display: flex;
+  flex-flow: column;
+  flex: 2;
+  padding: 20px;
+  z-index: 0;
+}
+
+.left-side {
+  align-items: center;
+  background: white;
+  flex: 1;
+  justify-content: center;
+}
+
+.right-side .title {
+  margin-bottom: 50px;
+}
+
+.full-side {
+  background: #EFC422;
+  color: #222;
+  height: 100vh;
+  left: 0;
+  position: absolute;
+  transition: all 0.3s ease 0s;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+.intro {
+  margin: 20% auto 0;
+  text-align: center;
+  width: 800px;
+}
+
+.intro-title {
+  color: white;
+  text-shadow: 0px 2px 2px #A48805;
+}
+
+#introButton {
+  font-size: 18px;
+  margin-top: 50px;
+}
+
+.full-side.out {
+  transform: translateY(-100vh);
+}
+
+.form-block {
+  margin: 10px 0;
+}
+
+.form-block .title{
+  margin-bottom: 15px;
+}
+
+.filters input {
+  margin-bottom: 10px;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr; 
+  grid-template-rows: auto auto;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  justify-items: stretch;
+}
+
+.product-item {
+  background: white;
+  border: 1px solid #f7f7f7;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  padding: 40px 10px 50px 10px;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+}
+
+.product-item .title-item {
+  color: #222;
+  text-shadow: 0px 2px 2px #f6f6f6;
+  font-size: 20px;
+  padding-bottom: 10px;
+}
+
+.product-item .description {
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.product-item .info {
+  bottom: 0;
+  display: flex;
+  flex-flow: row;
+  font-size: 14px;
+  font-weight: 300;
+  list-style: none;
+  position: absolute;
+  width: 40%;
+}
+
+.product-item .info li {
+  flex: 1;
+  margin: 5px 0;
+}
+
+.product-city {
+  left: 0;
+  padding: 5px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.product-city-1 {
+  background: #EFC422;
+  color: white;
+  text-shadow: 0px 2px 2px #A48805;
+}
+
+.product-city-2 {
+  background: #b1ef22;
+  color: white;
+  text-shadow: 0px 2px 2px #b1ef22;
+}
+
+.product-city-3 {
+  background: #22bfef;
+  color: white;
+  text-shadow: 0px 2px 2px #22bfef;
+}
+
+.product-city-4 {
+  background: #8222ef;
+  color: white;
+  text-shadow: 0px 2px 2px #8222ef;
+}
+
+.product-item .small {
+  margin-top: 20px;
+}
+
+.small {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 20px;
+}
