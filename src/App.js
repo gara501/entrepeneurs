@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Data from './data/people.json'
 import './App.css';
 import './styles.css';
+import logo from './logo.png';
 
 class App extends Component {
   constructor(props) {
@@ -10,11 +11,14 @@ class App extends Component {
       businessData: [],
       cityFilters: [],
       typeFilters: [],
-      isChecked: true,
+      filteredData: [],
+      categorySelected: 'Todas',
       categoryFilters: [],
       category: 'All'
     };
     this.handleChecked = this.handleChecked.bind(this);
+    this.handleCheckedSecondary = this.handleCheckedSecondary.bind(this);
+    this.showMenu = this.showMenu.bind(this);
   }
 
   componentDidMount() {
@@ -26,11 +30,9 @@ class App extends Component {
 
   getChecked() {
     let filters = document.querySelectorAll('input[type=checkbox]');
+
     let checked = {
-      all: [],
-      city: [],
-      type: [],
-      category: []
+      all: []
     };
 
     let empty = [].filter.call( filters, function( el ) {
@@ -44,6 +46,7 @@ class App extends Component {
     
     if (filters.length === empty.length) {
       this.setState({businessData: Data});
+      this.setState({filteredData: Data});
     } else {
       checked.all = filled;
     }
@@ -56,38 +59,47 @@ class App extends Component {
     let filters = this.getChecked();
     let newData = [];
     let finalData = [];
+    
     if (filters.all.length > 0) {
-      filters.all.forEach(item => {     
+      filters.all.forEach(item => {
+        console.log('item', item); 
         if (item.dataset['type'] === 'city') {
           newData = Data.filter(itemJson => {
             return itemJson.city === item.value;
           });
           finalData.push(...newData);
+          this.setState({filteredData: finalData});
         }
-        else if (item.dataset['type'] === 'type') {
-          /*
-          newData = finalData.filter(itemJson => {
-            return itemJson.type === item.value;
-          });
-          finalData.push(...newData);
-          */
-        }
-        else if (item.dataset['type'] === 'category') {
-          /*
-          newData = finalData.filter(itemJson => {
-            return itemJson.category === item.value;
-          });
-          finalData.push(...newData);
-          */
-
-        }
-        
-        return finalData;
-      })
-    
+        return newData;
+      });
       this.setState({businessData: finalData});
-      return finalData;
+    } else {
+      this.setState({businessData: Data});
     }
+  }
+
+  handleCheckedSecondary (e) {
+    e.persist();
+    let newData = [];
+    let selected = e.target.dataset['type'];
+    let selectedValue = e.target.value;
+    
+    if (selected === 'category') {
+     if (selectedValue !== 'all') {
+        newData = this.state.filteredData.filter(item => {
+          this.setState({categorySelected: selectedValue});
+          return item.category === selectedValue;
+        });
+     } else {
+        this.setState({categorySelected: 'Todas'});
+        newData = this.state.filteredData;
+     } 
+      this.setState({businessData: newData});
+    }
+  }
+
+  showMenu(e) {
+    const menu = document.querySelector('.full-side');
 
   }
 
@@ -140,8 +152,10 @@ class App extends Component {
             </div>
           </div>
           <div className="content">
-            <div className="left-side">  
-              <h2 className="title">Filtra tu busqueda:</h2>
+            <div className="left-side">
+              <div className="logo">
+                <img src={logo} alt="logo" />
+              </div>
               <div className="form-block">
                 <h4 className="title">Ciudad</h4>
                 {this.state.cityFilters.map((item, key) => 
@@ -151,24 +165,19 @@ class App extends Component {
                 )}
               </div>
               <div className="form-block">              
-                <h4 className="title">Tipo</h4>
-                {this.state.typeFilters.map((item, key) => 
-                  <div className="filters filters-type" key={key}>
-                    <input type="checkbox" id={"type_"+key} data-type="type" value={item} onChange={ this.handleChecked } /> <label htmlFor={"type_"+key}>{item}</label>
-                  </div>
-                )}
-              </div>
-              <div className="form-block">              
                 <h4 className="title">Categoría</h4>
+                <div className="filters filters-type">
+                  <input type="radio" id={"classif_all"} data-type="category" name="category" value="all" onChange={ this.handleCheckedSecondary } /> <label htmlFor={"classif_all"}>Todas</label>
+                </div>
                 {this.state.categoryFilters.map((item, key) => 
                   <div className="filters filters-type" key={key}>
-                    <input type="checkbox" id={"classif_"+key} data-type="category" value={item} onChange={ this.handleChecked } /> <label htmlFor={"classif_"+key}>{item}</label>
+                    <input type="radio" id={"classif_"+key} key={key} data-type="category" name="category" value={item} onChange={ this.handleCheckedSecondary } /> <label htmlFor={"classif_"+key}>{item}</label>
                   </div>
                 )}
               </div>
             </div>
             <div className="right-side">
-              <h4 className="title">Category: {this.state.category}</h4>
+              <h4 className="title">Categoría seleccionada: {this.state.categorySelected}</h4>
               <div className="products-container">
                 <div className="products"> 
                   {this.state.businessData.map((business, key) => 
