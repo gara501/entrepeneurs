@@ -5,7 +5,7 @@
     "citycode": 1,
     "twitter": "@_Yanguito",
     "type": "Producto",
-    "classification": "Accesorios",
+    "category": "Accesorios",
     "business": {
       "name": "Bicilab",
       "description": "Accesorios en madera, gorras, camisetas ",
@@ -21,7 +21,7 @@
     "citycode": 1,
     "twitter": "@paula",
     "type": "Servicio",
-    "classification": "Turismo",
+    "category": "Turismo",
     "business": {
       "name": "Visas mundo",
       "description": "Asesoria en viajes, visados de turismo",
@@ -37,23 +37,7 @@
     "citycode": 2,
     "twitter": "@logox_e",
     "type": "Servicio",
-    "classification": "Consultoría",
-    "business": {
-      "name": "Logox",
-      "description": "Consultoria en normas de calidad, Planes estratégicos de seguridad vial y eficiencia energética",
-      "address": "bla bla bla",
-      "twitter": "@logox_e",
-      "facebook": "fanpageUrl",
-      "web": "pageUrl"
-    }
-  },
-  {
-    "username": "Pedro",
-    "city": "Bogotá",
-    "citycode": 2,
-    "twitter": "@logox_e",
-    "type": "Servicio",
-    "classification": "Consultoría",
+    "category": "Consultoría",
     "business": {
       "name": "Logox",
       "description": "Consultoria en normas de calidad, Planes estratégicos de seguridad vial y eficiencia energética",
@@ -69,7 +53,7 @@
     "citycode": 2,
     "twitter": "@Anamia23",
     "type": "Producto",
-    "classification": "Alimentos",
+    "category": "Alimentos",
     "business": {
       "name": "El artesano Taller de delicias",
       "description": "Tortas, reposteria",
@@ -85,7 +69,7 @@
     "citycode": 1,
     "twitter": "@Cualquierval",
     "type": "Producto",
-    "classification": "Alimentos",
+    "category": "Alimentos",
     "business": {
       "name": "Le carné gourmet",
       "description": "Productos carnicos ",
@@ -101,7 +85,7 @@
     "citycode": 1,
     "twitter": "@Visbalu",
     "type": "Producto",
-    "classification": "Alimentos",
+    "category": "Alimentos",
     "business": {
       "name": "Cherrybomb reposteria",
       "description": "Tortas, reposteria",
@@ -117,7 +101,7 @@
     "citycode": 1,
     "twitter": "@cataserna",
     "type": "Producto",
-    "classification": "Decoración",
+    "category": "Decoración",
     "business": {
       "name": "Fabrica de mandalas",
       "description": "Mandalas tejidas",
@@ -133,7 +117,7 @@
     "citycode": 3,
     "twitter": "@MarcelaCancino_",
     "type": "Producto",
-    "classification": "Decoración",
+    "category": "Decoración",
     "business": {
       "name": "Maredeco",
       "description": "Decoración de interiores",
@@ -149,7 +133,7 @@
     "citycode": 1,
     "twitter": "@MetroyMedio2",
     "type": "Servicio",
-    "classification": "Consultoría",
+    "category": "Consultoría",
     "business": {
       "name": "AsesoraCultural",
       "description": "Comunicación y gestión cultural",
@@ -165,7 +149,7 @@
     "citycode": 2,
     "twitter": "@MariaLulitoo",
     "type": "Producto",
-    "classification": "Decoración",
+    "category": "Decoración",
     "business": {
       "name": "Rosario Design",
       "description": "Accesorios personalizados",

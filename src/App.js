@@ -11,7 +11,7 @@ class App extends Component {
       cityFilters: [],
       typeFilters: [],
       isChecked: true,
-      classificationFilters: [],
+      categoryFilters: [],
       category: 'All'
     };
     this.handleChecked = this.handleChecked.bind(this);
@@ -20,7 +20,7 @@ class App extends Component {
   componentDidMount() {
     this.setState({cityFilters: this.cityFilters()});
     this.setState({typeFilters: this.typeFilters()});
-    this.setState({classificationFilters: this.classificationFilters()});
+    this.setState({categoryFilters: this.categoryFilters()});
     this.getChecked();
   }
 
@@ -54,58 +54,49 @@ class App extends Component {
   handleChecked (e) {
     e.persist();
     let filters = this.getChecked();
+    let newData = [];
+    let finalData = [];
     if (filters.all.length > 0) {
+      filters.all.forEach(item => {     
+        if (item.dataset['type'] === 'city') {
+          newData = Data.filter(itemJson => {
+            return itemJson.city === item.value;
+          });
+          finalData.push(...newData);
+        }
+        else if (item.dataset['type'] === 'type') {
+          /*
+          newData = finalData.filter(itemJson => {
+            return itemJson.type === item.value;
+          });
+          finalData.push(...newData);
+          */
+        }
+        else if (item.dataset['type'] === 'category') {
+          /*
+          newData = finalData.filter(itemJson => {
+            return itemJson.category === item.value;
+          });
+          finalData.push(...newData);
+          */
 
-      filters.forEach(item => {
-        console.log(item);
+        }
+        
+        return finalData;
       })
+    
+      this.setState({businessData: finalData});
+      return finalData;
     }
 
-    
-    //this.setState({isChecked: !this.state.isChecked});
-    /*
-    console.log(this.state.isChecked);
-    
-    switch (e.target.dataset.type) {
-      case "city":
-        this.state.businessData.map(item => {
-          if (item.city === e.target.value) {
-            newData.push(item);
-          }
-          return item;
-        });
-        break;
-      case "type":
-        this.state.businessData.filter(item => {
-          if (item.type === e.target.value) {
-            newData.push(item);
-          }
-          return item;
-        });
-        break;
-      case "classification":
-        this.state.businessData.filter(item => {
-          if (item.classification === e.target.value) {
-            newData.push(item);
-          }
-          return item;
-        });
-        break;    
-      default:
-        break;
-    }
-
-    if (newData.length <= 0) {
-      newData = Data;
-    }
-    this.setState({businessData: newData});
-    */
   }
 
   moveIntro(e) {
     e.preventDefault();
     let introDiv = document.querySelector('.full-side');
+    let contentDiv = document.querySelector('.content');
     introDiv.classList.add('out');
+    contentDiv.classList.add('active');
   }
 
   cityFilters() {
@@ -126,12 +117,12 @@ class App extends Component {
     return cleanTypes;
   }
 
-  classificationFilters() {
-    let classification = [];
+  categoryFilters() {
+    let category = [];
     Data.map((item, key) => 
-      classification.push(item.classification)
+      category.push(item.category)
     );
-    var cleanClass = [ ...new Set(classification) ];
+    var cleanClass = [ ...new Set(category) ];
     return cleanClass;
   }
 
@@ -148,53 +139,57 @@ class App extends Component {
               <button id="introButton" className="button button-inverse" onClick={this.moveIntro}>Ver Emprendimientos</button>
             </div>
           </div>
-          <div className="left-side">  
-            <h2 className="title">Filtra tu busqueda:</h2>
-            <div className="form-block">
-              <h4 className="title">Ciudad</h4>
-              {this.state.cityFilters.map((item, key) => 
-                <div className="filters filters-city" key={key}>
-                  <input type="checkbox" id={"city_"+key} data-type="city" value={item} onChange={ this.handleChecked } /> <label htmlFor={"city_"+key}>{item}</label>
-                </div>
-              )}
-            </div>
-            <div className="form-block">              
-              <h4 className="title">Tipo</h4>
-              {this.state.typeFilters.map((item, key) => 
-                <div className="filters filters-type" key={key}>
-                  <input type="checkbox" id={"type_"+key} data-type="type" value={item} onChange={ this.handleChecked } /> <label htmlFor={"type_"+key}>{item}</label>
-                </div>
-              )}
-            </div>
-            <div className="form-block">              
-              <h4 className="title">Categoría</h4>
-              {this.state.classificationFilters.map((item, key) => 
-                <div className="filters filters-type" key={key}>
-                  <input type="checkbox" id={"classif_"+key} data-type="classification" value={item} onChange={ this.handleChecked } /> <label htmlFor={"classif_"+key}>{item}</label>
-                </div>
-              )}
-            </div>
-          </div>
-          <div className="right-side">
-            <h4 className="title">Category: {this.state.category}</h4>
-            <div className="products"> 
-              {this.state.businessData.map((business, key) => 
-                <div className="product-item" key={key}>
-                  <div className= {"product-city product-city-" + business.citycode}>
-                    {business.city}
+          <div className="content">
+            <div className="left-side">  
+              <h2 className="title">Filtra tu busqueda:</h2>
+              <div className="form-block">
+                <h4 className="title">Ciudad</h4>
+                {this.state.cityFilters.map((item, key) => 
+                  <div className="filters filters-city" key={key}>
+                    <input type="checkbox" id={"city_"+key} data-type="city" value={item} onChange={ this.handleChecked } /> <label htmlFor={"city_"+key}>{item}</label>
                   </div>
-                  <h5 className="title-item">{business.business.name}</h5>
-                  <p className="description">{business.business.description}</p>
-                  <ul className="info">
-                    <li><a href={"https://www.twitter.com/"+business.business.twitter}><span className="socicon socicon-twitter"></span></a></li>
-                    <li><a href={business.business.web}><span className="socicon socicon-internet"></span></a></li>
-                    <li><a href={"https://www.facebook.com/"+business.business.facebook}><span className="socicon socicon-facebook"></span></a></li>
-                  </ul>
-                  <p className="small">
-                    Contacto: <a href={"https://www.twitter.com/"+business.twitter}>{business.username}</a>
-                  </p>
+                )}
+              </div>
+              <div className="form-block">              
+                <h4 className="title">Tipo</h4>
+                {this.state.typeFilters.map((item, key) => 
+                  <div className="filters filters-type" key={key}>
+                    <input type="checkbox" id={"type_"+key} data-type="type" value={item} onChange={ this.handleChecked } /> <label htmlFor={"type_"+key}>{item}</label>
+                  </div>
+                )}
+              </div>
+              <div className="form-block">              
+                <h4 className="title">Categoría</h4>
+                {this.state.categoryFilters.map((item, key) => 
+                  <div className="filters filters-type" key={key}>
+                    <input type="checkbox" id={"classif_"+key} data-type="category" value={item} onChange={ this.handleChecked } /> <label htmlFor={"classif_"+key}>{item}</label>
+                  </div>
+                )}
+              </div>
+            </div>
+            <div className="right-side">
+              <h4 className="title">Category: {this.state.category}</h4>
+              <div className="products-container">
+                <div className="products"> 
+                  {this.state.businessData.map((business, key) => 
+                    <div className="product-item" key={key}>
+                      <div className= {"product-city product-city-" + business.citycode}>
+                        {business.city}
+                      </div>
+                      <h5 className="title-item">{business.business.name}</h5>
+                      <p className="description">{business.business.description}</p>
+                      <ul className="info">
+                        <li><a href={"https://www.twitter.com/"+business.business.twitter}><span className="socicon socicon-twitter"></span></a></li>
+                        <li><a href={business.business.web}><span className="socicon socicon-internet"></span></a></li>
+                        <li><a href={"https://www.facebook.com/"+business.business.facebook}><span className="socicon socicon-facebook"></span></a></li>
+                      </ul>
+                      <p className="small">
+                        Contacto: <a href={"https://www.twitter.com/"+business.twitter}>{business.username}</a>
+                      </p>
+                    </div>
+                  )}
                 </div>
-              )}
+              </div>
             </div>
           </div>
         </div>
