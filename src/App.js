@@ -4,6 +4,10 @@ import './App.css';
 import './styles.css';
 import logo from './logo.png';
 
+import 'firebase/firestore';
+import db from './db.js';
+require('dotenv').config();
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -19,13 +23,15 @@ class App extends Component {
     this.handleChecked = this.handleChecked.bind(this);
     this.handleCheckedSecondary = this.handleCheckedSecondary.bind(this);
     this.showMenu = this.showMenu.bind(this);
+    console.log(db);
   }
 
   componentDidMount() {
     this.setState({cityFilters: this.cityFilters()});
     this.setState({typeFilters: this.typeFilters()});
     this.setState({categoryFilters: this.categoryFilters()});
-    this.getChecked();
+    this.getChecked();  
+    console.log(process.env);
   }
 
   getChecked() {
@@ -99,7 +105,7 @@ class App extends Component {
   }
 
   showMenu(e) {
-    const menu = document.querySelector('.full-side');
+//    const menu = document.querySelector('.full-side');
 
   }
 

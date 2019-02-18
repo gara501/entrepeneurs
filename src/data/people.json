@@ -27,6 +27,22 @@
       "description": "Asesoria en viajes, visados de turismo",
       "address": "bla bla bla",
       "twitter": "@paula",
+      "facebook": "/DocumentacionVisasATodoElMundo/",
+      "web": "pageUrl"
+    }
+  },
+  {
+    "username": "Alejandro Gomez",
+    "city": "Medellín",
+    "citycode": 1,
+    "twitter": "@alejogg",
+    "type": "Producto",
+    "category": "Comida",
+    "business": {
+      "name": "Los postres de Alejo",
+      "description": "Postres Gourmet",
+      "address": "no one",
+      "twitter": "@alejogg",
       "facebook": "fanpageUrl",
       "web": "pageUrl"
     }
@@ -97,7 +113,7 @@
   },
   {
     "username": "Catalina Serna",
-    "city": "Medellín",
+    "city": "Bogotá",
     "citycode": 1,
     "twitter": "@cataserna",
     "type": "Producto",
